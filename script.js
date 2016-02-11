@@ -14,7 +14,8 @@ $(document).ready(function(){
 
 
 	ifMinOdd(m);
-	changeBackgroundColor(m, s, ms);	
+	changeBackgroundColor(m, s, ms);
+	changeCornerColor(m, s, ms);	
 	}
 
 	window.setInterval(findTime, 1);
@@ -33,19 +34,37 @@ $(document).ready(function(){
 		}
 	}
 
-	var bodyArray = ["#3399ff", "#7bc675", "#a155e7", "#ff8746", "#f983f9", "#ff0080", "#ffff58", "#ff4040", "#40e0d0"]
-		var bodyColor = bodyArray[Math.floor(Math.random()*bodyArray.length)];
+//preselected list of "AWESOME" colors that will be randomly selected by the following "background-color-changing" functions
+	var bodyArray = ["#3399ff", "#40e0d0", "#a155e7", "#ff8746", "#f983f9", "#ff0080", "#ffff58", "#ff4040", "#7bc675"]
 
-
+//randomly selects a background color upon pageload
 	$('window').ready(function(){
+		var bodyColor = bodyArray[Math.floor(Math.random()*bodyArray.length)];
 		$('body').css('backgroundColor', bodyColor);	
 	});
 
-
+// function that randomly selects a new background color every 5 minutes
 	function changeBackgroundColor(val, val2, val3){
 		var bodyColor2 = bodyArray[Math.floor(Math.random()*bodyArray.length)];
-		if (val % 5 === 0 && val2 === 0 && val3 < 8){
+		if (val % 5 === 0 && val2 === 0 && val3 < 10){
 			$('body').css('backgroundColor', bodyColor2);
+		}
+		else{
+			;
+		}
+	}
+
+//function that randomly selects and sets the original background color of the corner pieces
+	$('window').ready(function(){
+		var bodyColor = bodyArray[Math.floor(Math.random()*bodyArray.length)];
+		$('.random').css('backgroundColor', bodyColor);	
+	});
+
+//function that selects random new color in the corners ever hour
+	function changeCornerColor(val, val2, val3){
+		var bodyColor3 = bodyArray[Math.floor(Math.random()*bodyArray.length)];
+		if (val === 0 && val2 === 0 && val3 < 10){
+			$('.random').css('backgroundColor', bodyColor3);
 		}
 		else{
 			;
