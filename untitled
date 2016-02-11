@@ -1,0 +1,10 @@
+	// function changeTextColor(val){
+	// 	if (val === 0){
+	// 		$('#title').css('color', bodyColor);
+	// 	}
+	// 	else{
+	// 		;
+	// 	}
+	// }
+
+		// changeTextColor(m);	
