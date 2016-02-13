@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+	//clock function
 	function findTime() {
 	    var today = new Date();
 	    var h = today.getHours();
@@ -9,22 +9,21 @@ $(document).ready(function(){
 	    $('#hours').text(h);
 	    $('#minutes').text(theTen(m));
 	    $('#seconds').text(theTen(s));
-	    // $('#milliseconds').text(theTen(ms));
-
-
 
 	ifMinOdd(m);
 	changeBackgroundColor(m, s, ms);
 	changeCornerColor(m, s, ms);	
 	}
 
+//runs the function every millisecond
 	window.setInterval(findTime, 1);
 
+//correctly formats minutes and seconds by adding a 0 in front of single digit numbers
 	function theTen(i) {
 	    if (i < 10) {i = "0" + i}; 
 	    return i;
 	}
-
+//changes clock background color every minute
 	function ifMinOdd(value){
 		if (value % 2 === 0){
 			$('#clock').css({'backgroundColor':'white', 'color':'black'});
@@ -63,7 +62,7 @@ $(document).ready(function(){
 //function that selects random new color in the corners ever hour
 	function changeCornerColor(val, val2, val3){
 		var bodyColor3 = bodyArray[Math.floor(Math.random()*bodyArray.length)];
-		if (val === 0 && val2 === 0 && val3 < 10){
+		if (val % 1 === 0 && val2 === 0 && val3 < 50){
 			$('.random').css('backgroundColor', bodyColor3);
 		}
 		else{
