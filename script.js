@@ -59,10 +59,10 @@ $(document).ready(function(){
 		$('.random').css('backgroundColor', bodyColor);	
 	});
 
-//function that selects random new color in the corners ever hour
+//function that selects random new color in the corners ever 10 seconds
 	function changeCornerColor(val, val2, val3){
 		var bodyColor3 = bodyArray[Math.floor(Math.random()*bodyArray.length)];
-		if (val % 1 === 0 && val2 === 0 && val3 < 50){
+		if (val % 1 === 0 && val2 % 10 === 0 && val3 < 10){
 			$('.random').css('backgroundColor', bodyColor3);
 		}
 		else{
@@ -70,6 +70,7 @@ $(document).ready(function(){
 		}
 	}
 
-
-
 });
+
+
+linear-gradient(red, yellow);
